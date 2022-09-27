@@ -3,13 +3,40 @@ let RPLarray = ["Rock", "Paper", "Scissor"];
 function getComputerChoice() {
   return RPLarray[Math.floor(Math.random() * 3)];
 }
+const startbtn = document.querySelector(".reveal-btn");
+const mainstartbtn = document.querySelector(".main-btn");
+mainstartbtn.addEventListener(
+  "click",
+  () => {
+    mainstartbtn.classList.add("main-start-btn");
+    //startbtn.classList.remove("main-start-btn");
+    getPlayerChoice();
+    restart();
+  },
+  {
+    once: true,
+  }
+);
+function start() {
+  startbtn.addEventListener("click", getPlayerChoice);
+}
 
-const startbtn = document.querySelector(".startbtn");
-startbtn.addEventListener("click", getPlayerChoice);
-
+const restartbtn = document.querySelector(".hidden-content");
+restartbtn.addEventListener("click", restart, () => {
+  const h1 = document.querySelector("h1");
+  h1.classList.remove("hidden-content");
+});
 let wrCount = 0;
 let trCount = 0;
 let lrCount = 0;
+
+function restart() {
+  restartbtn.classList.remove("hidden-content");
+  wrCount *= 0;
+  lrCount *= 0;
+  console.log(wrCount, lrCount);
+  getPlayerChoice();
+}
 
 function getPlayerChoice() {
   const btn = document.querySelectorAll(".CardText");
@@ -22,8 +49,8 @@ function getPlayerChoice() {
 }
 
 function getPlayerChoiceR() {
-  //computerChoice = getComputerChoice();
-  console.log(computerChoice);
+  computerChoice = getComputerChoice();
+  //console.log(computerChoice);
   if (computerChoice == "Rock") {
     console.log("TIE");
     trCount++;

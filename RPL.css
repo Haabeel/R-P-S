@@ -16,6 +16,29 @@ body {
   font-weight: bolder;
   font-size: 24px;
 }
+.hidden-content.reveal-btn {
+  display: block;
+}
+.hidden-content {
+  display: none;
+}
+.restartbtn {
+  border: solid black 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: black;
+  color: aliceblue;
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+.main-start-btn {
+  display: none;
+}
+
+.hide-btn {
+  display: none;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -23,10 +46,9 @@ body {
   align-items: center;
 }
 #ScoreCard {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 50px;
   padding: 50px;
   border: solid black 5px;
   border-radius: 10px;
