@@ -1,0 +1,85 @@
+body {
+  background-color: rgba(14, 67, 126, 0.59);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+#ScoreCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 50px;
+  border: solid black 5px;
+  border-radius: 10px;
+  margin: 50px;
+  width: 300px;
+  background-color: whitesmoke;
+}
+
+#RPL-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 50px;
+  border: solid black 5px;
+  border-radius: 10px;
+  width: fit-content;
+  background-color: whitesmoke;
+}
+
+#Rock {
+  height: 350px;
+  width: 200px;
+  border: solid black 5px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  background-color: rgba(31, 18, 18, 0.8);
+}
+
+#Paper {
+  height: 350px;
+  width: 200px;
+  border: solid black 5px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  background-color: rgba(64, 42, 86, 0.76);
+}
+
+#Scissor {
+  height: 350px;
+  width: 200px;
+  border: solid black 5px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  background-color: rgba(73, 68, 78, 0.76);
+}
+
+.CardText {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: rgba(209, 204, 204, 1);
+  border-style: none;
+  background-color: rgba(31, 18, 18, 0);
+  cursor: pointer;
+}
