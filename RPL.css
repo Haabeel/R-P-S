@@ -7,6 +7,10 @@ body {
   padding: 2%;
 }
 
+.startbtn {
+  border: none;
+  cursor: pointer;
+}
 .container {
   display: flex;
   flex-direction: column;
