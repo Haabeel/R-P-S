@@ -16,12 +16,15 @@ body {
   font-weight: bolder;
   font-size: 24px;
 }
+
 .hidden-content.reveal-btn {
   display: block;
 }
+
 .hidden-content {
   display: none;
 }
+
 .restartbtn {
   border: solid black 2px;
   border-radius: 5px;
@@ -39,12 +42,14 @@ body {
 .hide-btn {
   display: none;
 }
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
+
 #ScoreCard {
   align-items: center;
   display: flex;
@@ -86,10 +91,6 @@ body {
   width: 200px;
   border: solid black 5px;
   border-radius: 10px;
-  /*display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 20px;*/
   background-color: rgba(64, 42, 86, 0.76);
 }
 
@@ -98,9 +99,6 @@ body {
   width: 200px;
   border: solid black 5px;
   border-radius: 10px;
-  /*display: flex;
-  justify-content: center;
-  align-items: center; */
   background-color: rgba(73, 68, 78, 0.76);
 }
 
