@@ -1,94 +1,283 @@
 let RPLarray = ["Rock", "Paper", "Scissor"];
-
+const scoreTitle = document.querySelector(".wonLost");
+const PchoiceBG = document.querySelector(".Pchoice");
+const CchoiceBG = document.querySelector(".Cchoice");
 function getComputerChoice() {
   return RPLarray[Math.floor(Math.random() * 3)];
 }
-
-function getPlayerChoice() {
-  let p = prompt("Enter your choice");
-  let p1 = p.charAt(0).toUpperCase() + p.slice(1).toLowerCase();
-  return p1;
+const startbtn = document.querySelector(".reveal-btn");
+const mainstartbtn = document.querySelector(".main-btn");
+mainstartbtn.addEventListener(
+  "click",
+  () => {
+    mainstartbtn.classList.add("main-start-btn");
+    //startbtn.classList.remove("main-start-btn");
+    getPlayerChoice();
+    restart();
+    scoreTitles();
+  },
+  {
+    once: true,
+  }
+);
+function start() {
+  startbtn.addEventListener("click", getPlayerChoice);
 }
+const restartbtn = document.querySelector(".hidden-content");
+restartbtn.addEventListener("click", restart);
 
+const restartbtncontainer = document.querySelector(".RestartScore");
 let wrCount = 0;
 let trCount = 0;
 let lrCount = 0;
-let roundResult = 0;
 
-function playRound() {
-  let computerChoice = getComputerChoice();
-  let playerChoice = getPlayerChoice();
-  if (playerChoice == "Rock") {
-    if (computerChoice == "Rock") {
-      alert("TIE");
-      trCount++;
-    } else if (computerChoice == "Paper") {
-      alert("LOST");
-      betweenround++;
-      lrCount++;
-      roundResult--;
-    } else if (computerChoice == "Scissor") {
-      alert("WON");
-      betweenround++;
-      wrCount++;
-      roundResult++;
-    } else {
-      alert("ERROR");
-    }
-  } else if (playerChoice == "Paper") {
-    if (computerChoice == "Rock") {
-      alert("WON");
-      betweenround++;
-      wrCount++;
-      roundResult++;
-    } else if (computerChoice == "Paper") {
-      alert("TIE");
-      trCount++;
-    } else if (computerChoice == "Scissor") {
-      alert("LOST");
-      betweenround++;
-      lrCount++;
-      roundResult--;
-    } else {
-      alert("ERROR");
-    }
-  } else if (playerChoice == "Scissor") {
-    if (computerChoice == "Rock") {
-      alert("LOST");
-      betweenround++;
-      lrCount++;
-      roundResult--;
-    } else if (computerChoice == "Paper") {
-      alert("WON");
-      betweenround++;
-      wrCount++;
-      roundResult++;
-    } else if (computerChoice == "Scissor") {
-      alert("TIE");
-      trCount++;
-    } else {
-      alert("ERROR");
-    }
-  } else {
-    alert("ERROR INPUT");
+function scoreTitles() {
+  if (scoreTitle.classList.contains("hide-cards")) {
+    scoreTitle.classList.add("flex");
+    scoreTitle.classList.remove("hide-cards");
+  } else if (scoreTitle.classList.contains("flex")) {
+    scoreTitle.classList.remove("flex");
+    scoreTitle.classList.add("hide-cards");
   }
 }
-let betweenround = 0;
-function game() {
-  while (betweenround < 5) {
-    playRound();
+function restart() {
+  restartbtncontainer.classList.remove("hidden-content");
+  wrCount *= 0;
+  lrCount *= 0;
+  getPlayerChoice();
+  R.classList.remove("hidden-content");
+  P.classList.remove("hidden-content");
+  S.classList.remove("hidden-content");
+  G.classList.add("hide-cards");
+  W.classList.add("hide-cards");
+  L.classList.add("hide-cards");
+  scoreTitle.classList.add("flex");
+  Wscore.textContent = wrCount;
+  Lscore.textContent = lrCount;
+
+  if (CchoiceBG.classList.contains("PaperBG")) {
+    CchoiceBG.classList.remove("PaperBG");
+  } else if (CchoiceBG.classList.contains("ScissorBG")) {
+    CchoiceBG.classList.remove("ScissorBG");
+  } else if (CchoiceBG.classList.contains("RockBG")) {
+    CchoiceBG.classList.remove("RockBG");
   }
-  console.log(wrCount, trCount, lrCount);
-  RoundScoreLogic();
+  CchoiceBG.classList.add("defaultChoiceContainerBGcolor");
+  CchoiceBG.classList.remove("white");
+  if (PchoiceBG.classList.contains("PaperBG")) {
+    PchoiceBG.classList.remove("PaperBG");
+  } else if (PchoiceBG.classList.contains("ScissorBG")) {
+    PchoiceBG.classList.remove("ScissorBG");
+  } else if (PchoiceBG.classList.contains("RockBG")) {
+    PchoiceBG.classList.remove("RockBG");
+  }
+  PchoiceBG.classList.add("defaultChoiceContainerBGcolor");
+  PchoiceBG.classList.remove("white");
 }
 
-function RoundScoreLogic() {
-  if (roundResult > 0) {
-    alert("YOU WON");
-  } else if (roundResult < 0) {
-    alert("YOU LOST");
-  } else if (roundResult == 0) {
-    alert("TIE");
+function getPlayerChoice() {
+  const btn = document.querySelectorAll(".CardText");
+  const btnR = btn[0];
+  const btnP = btn[1];
+  const btnS = btn[2];
+  btnR.addEventListener("click", getPlayerChoiceR);
+  btnP.addEventListener("click", getPlayerChoiceP);
+  btnS.addEventListener("click", getPlayerChoiceS);
+}
+const R = document.querySelector(".Rock");
+const P = document.querySelector(".Paper");
+const S = document.querySelector(".Scissor");
+const G = document.querySelector(".GameOver");
+const W = document.querySelector(".wonText");
+const L = document.querySelector(".lostText");
+const scoreCount = document.querySelectorAll(".ScoreCount");
+const Lscore = scoreCount[1];
+const Wscore = scoreCount[0];
+//scoreTitles();
+function won() {
+  R.classList.add("hidden-content");
+  P.classList.add("hidden-content");
+  S.classList.add("hidden-content");
+  G.classList.remove("hide-cards");
+  W.classList.remove("hide-cards");
+  scoreTitle.classList.remove("flex");
+  scoreTitle.classList.add("hide-cards");
+  //scoreTitles();
+  if (CchoiceBG.classList.contains("PaperBG")) {
+    CchoiceBG.classList.remove("PaperBG");
+  } else if (CchoiceBG.classList.contains("ScissorBG")) {
+    CchoiceBG.classList.remove("ScissorBG");
+  } else if (CchoiceBG.classList.contains("RockBG")) {
+    CchoiceBG.classList.remove("RockBG");
+  }
+  CchoiceBG.classList.add("defaultChoiceContainerBGcolor");
+  CchoiceBG.classList.remove("white");
+  if (PchoiceBG.classList.contains("PaperBG")) {
+    PchoiceBG.classList.remove("PaperBG");
+  } else if (PchoiceBG.classList.contains("ScissorBG")) {
+    PchoiceBG.classList.remove("ScissorBG");
+  } else if (PchoiceBG.classList.contains("RockBG")) {
+    PchoiceBG.classList.remove("RockBG");
+  }
+  PchoiceBG.classList.add("defaultChoiceContainerBGcolor");
+  PchoiceBG.classList.remove("white");
+}
+function lost() {
+  R.classList.add("hidden-content");
+  P.classList.add("hidden-content");
+  S.classList.add("hidden-content");
+  G.classList.remove("hide-cards");
+  L.classList.remove("hide-cards");
+  scoreTitle.classList.remove("flex");
+  scoreTitle.classList.add("hide-cards");
+  //scoreTitles();
+
+  if (CchoiceBG.classList.contains("PaperBG")) {
+    CchoiceBG.classList.remove("PaperBG");
+  } else if (CchoiceBG.classList.contains("ScissorBG")) {
+    CchoiceBG.classList.remove("ScissorBG");
+  } else if (CchoiceBG.classList.contains("RockBG")) {
+    CchoiceBG.classList.remove("RockBG");
+  }
+  CchoiceBG.classList.add("defaultChoiceContainerBGcolor");
+  CchoiceBG.classList.remove("white");
+  if (PchoiceBG.classList.contains("PaperBG")) {
+    PchoiceBG.classList.remove("PaperBG");
+  } else if (PchoiceBG.classList.contains("ScissorBG")) {
+    PchoiceBG.classList.remove("ScissorBG");
+  } else if (PchoiceBG.classList.contains("RockBG")) {
+    PchoiceBG.classList.remove("RockBG");
+  }
+  PchoiceBG.classList.add("defaultChoiceContainerBGcolor");
+  PchoiceBG.classList.remove("white");
+}
+function CAddRockBG() {
+  CchoiceBG.classList.remove("defaultChoiceContainerBGcolor");
+  if (CchoiceBG.classList.contains("PaperBG")) {
+    CchoiceBG.classList.remove("PaperBG");
+  } else if (CchoiceBG.classList.contains("ScissorBG")) {
+    CchoiceBG.classList.remove("ScissorBG");
+  }
+  CchoiceBG.classList.add("RockBG");
+  CchoiceBG.classList.add("white");
+}
+function CaddPaperBG() {
+  CchoiceBG.classList.remove("defaultChoiceContainerBGcolor");
+  if (CchoiceBG.classList.contains("RockBG")) {
+    CchoiceBG.classList.remove("RockBG");
+  } else if (CchoiceBG.classList.contains("ScissorBG")) {
+    CchoiceBG.classList.remove("ScissorBG");
+  }
+  CchoiceBG.classList.add("PaperBG");
+  CchoiceBG.classList.add("white");
+}
+function CaddScissorBG() {
+  CchoiceBG.classList.remove("defaultChoiceContainerBGcolor");
+  if (CchoiceBG.classList.contains("PaperBG")) {
+    CchoiceBG.classList.remove("PaperBG");
+  } else if (CchoiceBG.classList.contains("RockBG")) {
+    CchoiceBG.classList.remove("RockBG");
+  }
+  CchoiceBG.classList.add("ScissorBG");
+  CchoiceBG.classList.add("white");
+}
+function PaddRockBG() {
+  PchoiceBG.classList.remove("defaultChoiceContainerBGcolor");
+  if (PchoiceBG.classList.contains("PaperBG")) {
+    PchoiceBG.classList.remove("PaperBG");
+  } else if (PchoiceBG.classList.contains("ScissorBG")) {
+    PchoiceBG.classList.remove("ScissorBG");
+  }
+  PchoiceBG.classList.add("RockBG");
+  PchoiceBG.classList.add("white");
+}
+function PaddPaperBG() {
+  PchoiceBG.classList.remove("defaultChoiceContainerBGcolor");
+  if (PchoiceBG.classList.contains("RockBG")) {
+    PchoiceBG.classList.remove("RockBG");
+  } else if (PchoiceBG.classList.contains("ScissorBG")) {
+    PchoiceBG.classList.remove("ScissorBG");
+  }
+  PchoiceBG.classList.add("PaperBG");
+  PchoiceBG.classList.add("white");
+}
+function PaddScissorBG() {
+  PchoiceBG.classList.remove("defaultChoiceContainerBGcolor");
+  if (PchoiceBG.classList.contains("PaperBG")) {
+    PchoiceBG.classList.remove("PaperBG");
+  } else if (PchoiceBG.classList.contains("RockBG")) {
+    PchoiceBG.classList.remove("RockBG");
+  }
+  PchoiceBG.classList.add("ScissorBG");
+  PchoiceBG.classList.add("white");
+}
+function getPlayerChoiceR() {
+  computerChoice = getComputerChoice();
+  PaddRockBG();
+  if (computerChoice == "Rock") {
+    CAddRockBG();
+    trCount++;
+  } else if (computerChoice == "Paper") {
+    CaddPaperBG();
+    lrCount++;
+    Lscore.textContent = lrCount;
+  } else if (computerChoice == "Scissor") {
+    CaddScissorBG();
+    wrCount++;
+    Wscore.textContent = wrCount;
+  }
+  if (wrCount >= 5) {
+    won();
+    wrCount *= 0;
+  } else if (lrCount >= 5) {
+    lost();
+    lrCount *= 0;
   }
 }
-game();
+function getPlayerChoiceP() {
+  computerChoice = getComputerChoice();
+  PaddPaperBG();
+  if (computerChoice == "Rock") {
+    CAddRockBG();
+    wrCount++;
+    Wscore.textContent = wrCount;
+  } else if (computerChoice == "Paper") {
+    CaddPaperBG();
+    trCount++;
+  } else if (computerChoice == "Scissor") {
+    CaddScissorBG();
+    lrCount++;
+    Lscore.textContent = lrCount;
+  }
+  if (wrCount >= 5) {
+    won();
+    wrCount *= 0;
+  } else if (lrCount >= 5) {
+    lost();
+    wrCount *= 0;
+  }
+}
+
+function getPlayerChoiceS() {
+  PaddScissorBG();
+  computerChoice = getComputerChoice();
+  if (computerChoice == "Rock") {
+    CAddRockBG();
+    lrCount++;
+    Lscore.textContent = lrCount;
+  } else if (computerChoice == "Paper") {
+    CaddPaperBG();
+    wrCount++;
+    Wscore.textContent = wrCount;
+  } else if (computerChoice == "Scissor") {
+    CaddScissorBG();
+    trCount++;
+  }
+  if (wrCount >= 5) {
+    won();
+    wrCount *= 0;
+  } else if (lrCount >= 5) {
+    lost();
+    lrCount *= 0;
+  }
+}

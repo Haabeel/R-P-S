@@ -1,6 +1,245 @@
 body {
-  background-color: aqua;
+  background-color: rgba(14, 67, 126, 0.59);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2%;
 }
-#Rock {
+
+.startbtn {
+  border: solid black 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: black;
+  color: aliceblue;
+  font-weight: bolder;
+  font-size: 24px;
+}
+.hidden-content.reveal-btn {
+  display: block;
+}
+.hidden-content {
+  display: none;
+}
+.restartbtn {
+  border: solid black 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: black;
+  color: aliceblue;
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+.main-start-btn {
+  display: none;
+}
+
+.hide-btn {
+  display: none;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+#ScoreCard {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
   border: solid black 5px;
+  border-radius: 10px;
+  margin: 50px;
+  width: fit-content;
+  background-color: whitesmoke;
+}
+
+#RPL-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 50px;
+  border: solid black 5px;
+  border-radius: 10px;
+  width: fit-content;
+  background-color: whitesmoke;
+}
+
+.Rock {
+  height: 350px;
+  width: 200px;
+  border: solid black 5px;
+  border-radius: 10px;
+  /*display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;*/
+  background-color: rgba(31, 18, 18, 0.8);
+}
+
+.Paper {
+  height: 350px;
+  width: 200px;
+  border: solid black 5px;
+  border-radius: 10px;
+  /*display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;*/
+  background-color: rgba(64, 42, 86, 0.76);
+}
+
+.Scissor {
+  height: 350px;
+  width: 200px;
+  border: solid black 5px;
+  border-radius: 10px;
+  /*display: flex;
+  justify-content: center;
+  align-items: center; */
+  background-color: rgba(73, 68, 78, 0.76);
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+.CardText {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: rgba(209, 204, 204, 1);
+  border-style: none;
+  background-color: rgba(31, 18, 18, 0);
+  cursor: pointer;
+}
+
+.GameOver {
+  font-size: 100px;
+  font-weight: bolder;
+  color: rgba(0, 23, 0, 0.5);
+  transition: 1s;
+}
+
+.wonText {
+  font-size: 60px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bolder;
+  color: tomato;
+  transition: 1s;
+}
+
+.hide-cards {
+  display: none;
+}
+
+.lostText {
+  font-size: 55px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bolder;
+  color: tomato;
+  transition: 1s;
+  text-align: center;
+}
+
+.ScoreCount {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+  justify-self: flex-start;
+  margin-top: -40px;
+}
+
+.scoreTitle {
+  font-size: 36px;
+  font-weight: bolder;
+}
+
+.winnings {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.losings {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.RestartScore {
+  padding: 50px;
+  border: solid black 5px;
+  border-radius: 10px;
+  margin: 50px;
+  width: fit-content;
+  background-color: whitesmoke;
+}
+
+.flexRestart {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.GameChoiceContainer {
+  display: flex;
+}
+
+.Pchoice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 50px;
+  border: solid black 5px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.Cchoice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 50px;
+  border: solid black 5px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.defaultChoiceContainerBGcolor {
+  background-color: whitesmoke;
+}
+
+.RockBG {
+  background-color: rgba(31, 18, 18, 0.8);
+}
+
+.ScissorBG {
+  background-color: rgba(73, 68, 78, 0.76);
+}
+
+.PaperBG {
+  background-color: rgba(64, 42, 86, 0.76);
+}
+
+.white {
+  color: antiquewhite;
 }
