@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="RPL.css" />
+    <script src="RPL.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="ScoreCard">
+        <div class="wonLost hide-cards">
+          <div class="winnings">
+            <div class="scoreTitle">Player Points</div>
+            <div class="ScoreCount"></div>
+          </div>
+          <div class="losings">
+            <div class="scoreTitle">Computer Points</div>
+            <div class="ScoreCount"></div>
+          </div>
+        </div>
+        <h1 class="wonText hide-cards">YOU WON</h1>
+        <h1 class="lostText hide-cards">YOU LOST</h1>
+        <button class="main-btn startbtn">START</button>
+        <div class="ScoreText"></div>
+      </div>
+      <div class="GameChoiceContainer">
+        <div class="Pchoice defaultChoiceContainerBGcolor">
+          <div class="scoreTitle">Player Choice</div>
+        </div>
+        <div id="RPL-container">
+          <div class="GameOver hide-cards">GAME OVER</div>
+          <div class="Rock">
+            <div class="align-center">
+              <button class="CardText">Rock</button>
+            </div>
+          </div>
+          <div class="Paper">
+            <div class="align-center">
+              <button class="CardText">PAPER</button>
+            </div>
+          </div>
+          <div class="Scissor">
+            <div class="align-center">
+              <button class="CardText">SCISSORS</button>
+            </div>
+          </div>
+        </div>
+        <div class="Cchoice defaultChoiceContainerBGcolor">
+          <div class="scoreTitle">Computer Choice</div>
+        </div>
+      </div>
+      <div class="RestartScore hidden-content">
+        <button class="restartbtn">RESTART</button>
+      </div>
+    </div>
+  </body>
+</html>
